@@ -30,7 +30,7 @@ write.table(exprmatr,"matrix_before_PCA.txt",col.names = T,row.names = F,quote =
 #COE_network construction
 exprmatr_matrix <- expr_matrix_transposed
 set.seed(123)
-TF_gene <-read.table("filter_genes_plantTFDB_filtered.txt",header = T,sep = "\t") 
+TF_gene <-read.table("TF_list_from_plantTFDB.txt",header = T,sep = "\t") 
 genes <- substring(TF_gene$TF_name,1)
 positions <- ifelse(genes_exprmatr %in% genes, TRUE, FALSE)
 adj <- adjacency(exprmatr_matrix,selectCols = positions,power = 6)

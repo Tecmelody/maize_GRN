@@ -1,10 +1,10 @@
 library(GENIE3)
 set.seed(123)
-exprDataframe <- read.table("matrix_before_PCA.csv",header = T,row.names = 1,sep = "\t")
+exprDataframe <- read.table("supplement_table1_expression_matrix.csv",header = T,row.names = 1,sep = "\t")
 exprDataframe <- exprDataframe[which(rowSums(exprDataframe)>0),]
 exprMatr <- as.matrix(exprDataframe)
 dim(exprMatr)
-gene_name <- read.table("filter_genes_plantTFDB_filtered.txt",header = T,sep = "\t")
+gene_name <- read.table("TF_list_from_plantTFDB.txt",header = T,sep = "\t")
 head(gene_name)
 regulators <- Reduce(intersect,list(gene_name$TF_name,rownames(exprDataframe)))
 head(regulators)
